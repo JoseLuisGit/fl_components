@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:fl_components/screens/screens.dart';
+
 class HomeScreen extends StatelessWidget {
    
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,6 +19,10 @@ class HomeScreen extends StatelessWidget {
           trailing: const Icon(Icons.arrow_right_sharp, color: Colors.indigo,),
           onTap: (){
 
+           final route = MaterialPageRoute(
+                      builder: (context) => const Listview2Screen());
+
+            Navigator.push(context, route);
           },
         ), 
         separatorBuilder: ( _ , __ )=>const Divider(), 
