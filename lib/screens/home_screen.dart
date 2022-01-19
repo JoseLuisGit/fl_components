@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
            /*final route = MaterialPageRoute(
                       builder: (context) => const Listview2Screen());
            */
-            Navigator.pushNamed(context, 'listview1');
+            Navigator.pushNamed(context, 'listvie');
           },
         ), 
         separatorBuilder: ( _ , __ )=>const Divider(), 
