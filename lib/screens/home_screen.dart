@@ -6,10 +6,21 @@ class HomeScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-         child: Text('HomeScreen'),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.indigo,
+        title: const Center(child: Text('Componentes de Flutter'),),
       ),
+      body: ListView.separated(
+        itemBuilder: (context, index)=>ListTile(
+          title: const Text('Hello World'),
+          trailing: const Icon(Icons.arrow_right_sharp, color: Colors.indigo,),
+          onTap: (){
+
+          },
+        ), 
+        separatorBuilder: ( _ , __ )=>const Divider(), 
+        itemCount: 50),
     );
   }
 }
