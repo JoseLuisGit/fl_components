@@ -12,10 +12,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      initialRoute: 'listview2',
+      initialRoute: 'home',
       routes: {
-        'card': (BuildContext context) => const CardScreen(),
         'alert': (BuildContext context) => const AlertScreen(),
+        'card': (BuildContext context) => const CardScreen(),
+        'home': (BuildContext context) => const HomeScreen(),
         'listview1': (BuildContext context) => const Listview1Screen(),
         'listview2': (BuildContext context) => const Listview2Screen(),
       }
