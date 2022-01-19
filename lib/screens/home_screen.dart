@@ -19,10 +19,10 @@ class HomeScreen extends StatelessWidget {
           trailing: const Icon(Icons.arrow_right_sharp, color: Colors.indigo,),
           onTap: (){
 
-           final route = MaterialPageRoute(
+           /*final route = MaterialPageRoute(
                       builder: (context) => const Listview2Screen());
-
-            Navigator.push(context, route);
+           */
+            Navigator.pushNamed(context, 'listview1');
           },
         ), 
         separatorBuilder: ( _ , __ )=>const Divider(), 
