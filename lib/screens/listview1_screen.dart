@@ -1,3 +1,4 @@
+import 'package:fl_components/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class Listview1Screen extends StatelessWidget {
@@ -18,7 +19,7 @@ class Listview1Screen extends StatelessWidget {
           ...options.map((game) {
                return ListTile(
                  title: Text(game), 
-                 trailing: const Icon(Icons.arrow_forward_ios_outlined),);
+                 trailing: const Icon(Icons.arrow_forward_ios_outlined), iconColor: AppTheme.primary,);
           }).toList()
           
         ],
