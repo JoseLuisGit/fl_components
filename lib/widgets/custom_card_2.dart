@@ -9,7 +9,9 @@ class CustomCard2 extends StatelessWidget {
     return const Card(
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       elevation: 10,
-      child: Image(image: NetworkImage('https://wallpaper.dog/large/17026288.jpg'),),
+      child: FadeInImage(
+          image: NetworkImage('https://wallpaper.dog/large/17026288.jpg'),
+          placeholder: AssetImage('assets/loading.gif')),
     );
   }
 }
