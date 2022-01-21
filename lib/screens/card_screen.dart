@@ -13,7 +13,8 @@ class CardScreen extends StatelessWidget {
       appBar: AppBar(backgroundColor: AppTheme.primary, title: const Text('Card Components'),),
       body: ListView(
         children: const [
-           CustomCard()
+           CustomCard(),
+           CustomCard2()
         ],
       )
     );
