@@ -13,10 +13,21 @@ class CardScreen extends StatelessWidget {
       appBar: AppBar(backgroundColor: AppTheme.primary, title: const Text('Card Components'),),
       body: ListView(
         children: const [
-           CustomCard(),
-           CustomCard2()
-        ],
-      )
+            CustomCard(),
+            CustomCard2(imgUrl: 'https://wallpaper.dog/large/17026288.jpg', ),
+            SizedBox(
+              height: 8,
+            ),
+            CustomCard2(imgUrl: 'https://wallpaperaccess.com/full/1076309.jpg'),
+            SizedBox(
+              height: 8,
+            ),
+            CustomCard2(imgUrl: 'https://wallpaperbat.com/img/485814-autumn-cat-wallpaper-top-free-autumn-cat-background.jpg', name: 'This is a title',),
+            SizedBox(
+              height: 8,
+            )
+          ],
+        )
     );
   }
 }
