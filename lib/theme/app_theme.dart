@@ -16,6 +16,21 @@ class AppTheme {
       textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(primary: primary),),
       //appbar theme
       appBarTheme: const AppBarTheme(elevation: 0, backgroundColor: primary),
+
+      inputDecorationTheme: const InputDecorationTheme(
+        floatingLabelStyle: TextStyle(color: primary),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: primary),
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), topRight: Radius.circular(15))
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: primary),
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), topRight: Radius.circular(15))
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), topRight: Radius.circular(15))
+        ),
+      ),
       
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -30,4 +45,6 @@ class AppTheme {
 
       scaffoldBackgroundColor: Colors.black
   );
+
+
 }
