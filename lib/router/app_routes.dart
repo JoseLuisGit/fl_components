@@ -15,7 +15,7 @@ class AppRoutes{
     MenuOption(icon: Icons.align_vertical_bottom, route: 'alert', title: 'This is a alert', screen: const AlertScreen()),
     MenuOption(icon: Icons.circle, route: 'circle', title: 'This is a circle', screen: const CircleScreen()),
     MenuOption(icon: Icons.animation, route: 'animated', title: 'This is a Animated Screen', screen: const AnimatedContainerScreen()),
-    
+    MenuOption(icon: Icons.input, route: 'input', title: 'This is a Input', screen: const InputScreen()),
   ];
 
 
