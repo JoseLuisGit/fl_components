@@ -1,3 +1,4 @@
+import 'package:fl_components/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fl_components/widgets/widgets.dart';
@@ -7,6 +8,15 @@ class InputScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<FormState> formState = GlobalKey<FormState>();
+
+    final Map<String, String> formValues = {
+      'name': 'Jose',
+      'last_name': 'Quispe',
+      'email': 'joseluisstacruz@gmail.com',
+      'password': 'pass123456'
+    };
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Inputs'),
@@ -14,31 +24,57 @@ class InputScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: const [
-                CustomInput(
-                    hintText: 'Name',
-                    labelText: 'Insert name',
-                    iconData: Icons.people),
-                SizedBox(height: 5),
-                CustomInput(
-                    hintText: 'Last Name',
-                    labelText: 'Insert last name',
-                    iconData: Icons.person_outline_outlined),
-                SizedBox(height: 5),
-                CustomInput(
+            child: Form(
+              key: formState,
+              child: Column(
+                children: [
+                  CustomInput(
+                      formValues: formValues,
+                      formProperty: 'name',
+                      hintText: 'Name',
+                      labelText: 'Insert name',
+                      iconData: Icons.people),
+                  const SizedBox(height: 8),
+                  CustomInput(
+                      formValues: formValues,
+                      formProperty: 'last_name',
+                      hintText: 'Last Name',
+                      labelText: 'Insert last name',
+                      iconData: Icons.person_outline_outlined),
+                  const SizedBox(height: 8),
+                  CustomInput(
+                    formValues: formValues,
+                    formProperty: 'email',
                     hintText: 'email',
                     labelText: 'Insert email',
                     iconData: Icons.email,
-                    textInputType: TextInputType.emailAddress,),
-                SizedBox(height: 5),
-                CustomInput(
+                    textInputType: TextInputType.emailAddress,
+                  ),
+                  const SizedBox(height: 8),
+                  CustomInput(
+                    formValues: formValues,
+                    formProperty: 'password',
                     hintText: 'password',
                     labelText: 'Insert password',
-                    iconData: Icons.email,
                     obscureText: true,
-                    ),
-              ],
+                  ),
+                  const SizedBox(height: 8),
+                  ElevatedButton(
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+
+                        if (!formState.currentState!.validate()) {
+                          return;
+                        }
+
+                        print(formValues);
+                      },
+                      child: const SizedBox(
+                        width: double.infinity,
+                        child: Center(child: Text('Guardar')),
+                      ))
+                ],
+              ),
             ),
           ),
         ));

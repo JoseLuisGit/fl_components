@@ -9,13 +9,18 @@ class CustomInput extends StatelessWidget {
   final TextInputType textInputType;
   final bool obscureText;
 
+  final String formProperty;
+  final Map<String, String> formValues;
+
   const CustomInput({
     Key? key, 
     this.hintText, 
     this.labelText, 
     this.iconData,
     this.textInputType = TextInputType.text, 
-    this.obscureText = false
+    this.obscureText = false, 
+    required this.formProperty, 
+    required this.formValues
   }) : super(key: key);
 
   @override
@@ -23,11 +28,9 @@ class CustomInput extends StatelessWidget {
     return TextFormField(
       obscureText: obscureText,
       keyboardType: textInputType,
-      initialValue: '',
+      initialValue:  formValues[formProperty] ,
       textCapitalization: TextCapitalization.words,
-      onChanged: (value){
-          print(value);
-      },
+      onChanged: (value)=> formValues[formProperty] = value,
       validator: (value){
         if( value == null ) return null;
         return value.length > 3 ? null : 'Es menor a 3';
@@ -36,7 +39,7 @@ class CustomInput extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,
-        icon: Icon(iconData, color: AppTheme.primary,),
+        icon: iconData != null ? Icon(iconData, color: AppTheme.primary,) : null,
 
       ),
     );
