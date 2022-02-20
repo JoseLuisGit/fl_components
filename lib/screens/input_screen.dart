@@ -79,8 +79,6 @@ class InputScreen extends StatelessWidget {
                         if (!formState.currentState!.validate()) {
                           return;
                         }
-
-                
                       },
                       child: const SizedBox(
                         width: double.infinity,
