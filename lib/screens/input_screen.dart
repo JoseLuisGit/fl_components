@@ -14,7 +14,8 @@ class InputScreen extends StatelessWidget {
       'name': 'Jose',
       'last_name': 'Quispe',
       'email': 'joseluisstacruz@gmail.com',
-      'password': 'pass123456'
+      'password': 'pass123456',
+      'rol': 'admin'
     };
 
     return Scaffold(
@@ -59,15 +60,27 @@ class InputScreen extends StatelessWidget {
                     obscureText: true,
                   ),
                   const SizedBox(height: 8),
+                  DropdownButtonFormField<String>(
+                    value: formValues['rol'],
+                    items: const [
+                      DropdownMenuItem(value: 'admin' ,child: Text('Admin')),
+                      DropdownMenuItem(value: 'client' ,child: Text('Client')),
+                      DropdownMenuItem(value: 'super' ,child: Text('Super'))
+                    ], 
+                    onChanged: (value){
+                      print(value);
+                      formValues['rol'] = value ?? 'Admin';
+                    })
+                  ,
                   ElevatedButton(
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
-
+                        print(formValues);
                         if (!formState.currentState!.validate()) {
                           return;
                         }
 
-                        print(formValues);
+                
                       },
                       child: const SizedBox(
                         width: double.infinity,
