@@ -61,6 +61,17 @@ class _ListViewScreenState extends State<ListViewScreen> {
     setState(() {});
   }
 
+  Future<void> onRefresh()async{
+    await Future.delayed(const Duration(seconds: 2));
+
+    int lastId = listIds.last;
+
+    listIds.clear();
+
+    listIds.add(lastId);
+    addListIds();
+  }
+
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
@@ -72,19 +83,22 @@ class _ListViewScreenState extends State<ListViewScreen> {
         body: Stack(
 
           children: [
-            ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              controller: _scrollController,
-              itemCount: listIds.length,
-              itemBuilder: (_, index){
-                return FadeInImage(
-                  width: double.infinity,
-                  placeholder: const AssetImage('assets/load.gif'),
-                  image:  NetworkImage('https://picsum.photos/500/300?image=${listIds[index]}'),
-                        
-                );
-              }
-              ),
+            RefreshIndicator(
+              onRefresh: onRefresh,
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                controller: _scrollController,
+                itemCount: listIds.length,
+                itemBuilder: (_, index){
+                  return FadeInImage(
+                    width: double.infinity,
+                    placeholder: const AssetImage('assets/load.gif'),
+                    image:  NetworkImage('https://picsum.photos/500/300?image=${listIds[index]}'),
+                          
+                  );
+                }
+                ),
+            ),
               if(isLoading)
                  Positioned(
                     bottom: 40,
